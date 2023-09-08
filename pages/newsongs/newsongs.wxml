@@ -1,0 +1,14 @@
+<!--pages/newsongs/newsongs.wxml-->
+<view class="title">
+<view class="titleText">歌曲分类</view>
+</view>
+<block class="btnbox" wx:for="{{songlistData}}" wx:key="index">
+  <view class="list_warp">  
+      <view data-newsong="{{item}}" bindtap="more" class="list_l">
+      <image src="{{httpImageUrl+item.image.url}}"></image>
+      </view>
+      <view class="list_c">
+      <view class="listName"></view>
+      </view>
+  </view>
+</block>

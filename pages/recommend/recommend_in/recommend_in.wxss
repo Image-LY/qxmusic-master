@@ -1,0 +1,59 @@
+/* pages/recommend/recommend_in/recommend_in.wxss */
+.bg{
+  width: 100%;
+  height: 120rpx;
+  background-color: green;
+}
+
+.list_warp{
+  width: 100%;
+  height: 180rpx;
+  padding: 10rpx 0rpx;
+  box-shadow: 3rpx 6rpx 3rpx #f1f1f1;
+  background-color:  #ebfaeb;
+  margin-bottom: 2rpx;
+}
+.list_warp view{
+  float: left;
+}
+.list_warp .list_l{
+  width: 130rpx;
+  height: 160rpx;
+  padding-left: 55rpx;
+  padding-top: 20rpx;
+}
+.list_warp .list_c{
+  width: 330rpx;
+  height: 160rpx;
+  padding: 20rpx;
+}
+.list_c view{
+  width: 250rpx;
+  padding-left: 60rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list_c .musicName{
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.list_c .name{
+  font-size: 26rpx;
+  color: #555;
+}
+.list_warp .list_r{
+  width: 160rpx;
+  height: 145rpx;
+  padding-top:55rpx;
+}
+.list_l image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 23rpx;
+}
+.list_r image{
+width: 165rpx;
+height: 75rpx;
+}

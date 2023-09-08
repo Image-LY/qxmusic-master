@@ -1,0 +1,113 @@
+/* pages/rank/rank.wxss */
+.title{
+  width: 100%;
+  height: 100rpx;
+}
+.title .nonebox{
+  height: 50rpx;
+}
+
+.title .titleText{
+  font-weight: bolder;
+  font-size: 40rpx;
+  margin-left: 10rpx;
+  line-height: 10rpx;
+}
+.title::before
+{
+  width: 10rpx;
+  height: 50rpx;
+  background-color: #31C27C;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  margin-top: 30rpx;
+}
+.recommend {
+  white-space: nowrap;
+  padding-top: 20rpx;
+  background-color:  #ebfaeb;
+}
+
+.recommend .pic {
+  height: 220rpx;
+  width: 220rpx;
+  border-radius: 20rpx;
+}
+
+.recommend .box {
+  text-align: center;
+  width: 240rpx;
+  display: inline-block;
+}
+.title2{
+  width: 100%;
+  height: 160rpx;
+}
+.title2::before
+{
+  width: 10rpx;
+  height: 50rpx;
+  background-color: #31C27C;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  margin-top: 80rpx;
+}
+.title2 .nonebox2{
+  height: 80rpx;
+}
+.title2 .titleText2{
+  float: left;
+  width: 75%;
+  font-weight: bolder;
+  font-size: 40rpx;
+  margin-left: 10rpx;
+  
+}
+.title2 .titleText3{
+  width: 120rpx;
+  float: left;
+  text-align: center;
+  border-style:ridge;
+  border-radius: 30rpx;
+  font-weight: lighter;
+}
+.rank{
+  width: 100%;
+  height: 300rpx;
+  margin-bottom: 20rpx;
+  background-color:  #ebfaeb;
+}
+.rank view{
+float: left;
+}
+
+.rank .myimg{
+  width: 260rpx;
+  height: 220rpx;
+  white-space: nowrap;
+  padding-top: 35rpx;
+  padding-left: 10rpx;
+}
+.rank .pic {
+  height: 220rpx;
+  width: 220rpx;
+  border-radius: 20rpx;
+  border-style: ridge;
+}
+.rank .mytext{
+  width: 430rpx;
+  height: 300rpx;
+}
+.mytext .mytitle{
+  width: 100%;
+  padding-top: 70rpx;
+  padding-bottom: 30rpx;
+  font-weight: bolder;
+}
+.mytext .my{
+  width: 100%;
+}

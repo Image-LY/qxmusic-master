@@ -1,0 +1,22 @@
+<!--pages/songlist_more/songlist_more.wxml-->
+<view class="searchbox">
+  <input bindinput="test" model:value="{{searchText}}" class="txt" type="text" placeholder="搜索歌曲...">  </input>
+  <view class="btn" bindtap="search">
+    <image src="{{httpImageUrl+searchimgData[0].url}}"></image>
+  </view>
+</view>
+<block wx:for="{{songData}}" wx:key="index">
+  <view class="list_warp">
+    <view class="list_l">
+      <image src="{{item.image.url}}"></image>
+    </view>
+    <view class="list_c">
+      <view class="musicName">{{item.name}}</view>
+      <view class="name">{{item.singer}}</view>
+    </view>
+    <view data-item="{{item}}" bindtap="playsong" class="list_r">
+      <image src="{{httpImageUrl+playimgData[0].url}}"></image>
+    </view>
+  </view>
+
+</block>

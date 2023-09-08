@@ -1,0 +1,18 @@
+<!--pages/newdisc/newdisc_in/newdisc_in.wxml-->
+<view class="bg"></view>
+<block wx:for="{{songData}}" wx:key="index">
+  <view class="list_warp">
+      <view class="list_l">
+      <image src="{{item.image.url}}"></image>
+      </view>   
+      <view class="list_c">
+      <view class="musicName">{{item.name}}</view>
+      <view class="name">{{item.singer}}</view>
+      </view>
+      <view data-songdata:="{{item}}" bindtap="playsong" class="list_r">
+      <image src="{{httpImageUrl+playimgData[0].url}}"></image>
+      </view>
+  </view>
+  
+  </block>
+

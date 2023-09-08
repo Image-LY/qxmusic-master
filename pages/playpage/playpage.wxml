@@ -1,0 +1,23 @@
+<!--pages/playpage/playpage.wxml-->
+<view id="bg">
+<image class="bg" src="{{src}}"></image>
+</view>
+<view class="name">{{musicName}}
+<view class="authorName">{{author}}</view>
+</view>
+<swiper class="main">
+<swiper-item class="item imgitem">
+<image class="{{playState=='play'? '':'clear'}}" id="musicPic" src="{{src}}"></image>
+</swiper-item>
+</swiper>
+<view class="timeBox">
+<view class="startTime">{{musicTime3}}:{{musicTime4}}</view>
+<slider bindchange="sliderChange" activeColor="#31C27C" block-size="1 4" max="{{sliderLength}}" value="{{sliderCurLength}}"></slider>
+<view class="endTime">{{musicTime1}}:{{musicTime2}}</view>
+</view>
+<view class="btnBox">
+<image bindtap="lastMusic" src="{{httpImageUrl+playimgData[0].url}}"></image>
+<image bindtap="music" src="{{httpImageUrl+(playState==='pause'?  playimgData[2].url:playimgData[3].url)}}"></image>
+<image bindtap="nextMusic" src="{{httpImageUrl+playimgData[1].url}}"></image>
+</view>
+

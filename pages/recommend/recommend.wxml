@@ -1,0 +1,15 @@
+<!--pages/recommend/recommend.wxml-->
+<block wx:for="{{songlistData}}" wx:key="index">
+  <view class="list_warp">
+      <view class="list_l">
+      <image src="{{httpImageUrl+item.image.url}}"></image>
+      </view>   
+      <view class="list_c">
+      <view class="listName">{{item.listname}}</view>
+      <view class="name">{{item.listexplain}}</view>
+      </view>
+      <view data-songlistData="{{item}}" bindtap="more" class="list_r">
+      <image src="{{httpImageUrl+moreimgData[0].url}}"></image>
+      </view>
+  </view>
+</block>

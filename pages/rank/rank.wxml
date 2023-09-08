@@ -1,0 +1,32 @@
+<!--pages/rank/rank.wxml-->
+<view class="title">
+<view class="nonebox"></view>
+<view class="titleText">推荐</view>
+</view>
+<scroll-view class="recommend" scroll-x="{{true}}" scroll-left="{{true}}">
+  <block wx:for="{{rankimgData}}" wx:key="index2">
+  <view bindtap="more" data-listID="{{item}}" class="box">
+    <image src="{{httpImageUrl+item.image.url}}" class="pic"></image>
+  </view>
+  </block>
+</scroll-view>
+<view class="title2">
+<view class="nonebox2"></view>
+<view class="titleText2">我的精选</view>
+<view class="titleText3">自定义</view>
+</view>
+<block wx:for="{{rankData}}" wx:key="index">
+<view class="rank">
+  <view class="myimg">
+  <image class="pic" src="{{httpImageUrl+item.image.url}}"></image>
+  </view>
+  <view class="mytext">
+    <view class="mytitle">{{item.rankname}}</view>
+    <view class="my">
+      <text style="font-weight: bolder;">1.</text>{{item.rankContent.content1}}
+    </view>
+    <view class="my"><text style="font-weight: bolder;">2.</text>{{item.rankContent.content2}}</view>
+    <view class="my"><text style="font-weight: bolder;">3.</text>{{item.rankContent.content3}}</view>
+   </view>
+  </view>
+</block>

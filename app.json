@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/songlist/songlist",
+    "pages/me/me",
+    "pages/playpage/playpage",
+    "pages/Collection/collection",
+    "pages/newdisc/newdisc",
+    "pages/newdisc/newdisc_in/newdisc_in",
+    "pages/newsongs/newsongs",
+    "pages/newsongs/newsongs_in/newsongs_in",
+    "pages/rank/rank",
+    "pages/rank/rank_in/rank_in",
+    "pages/recommend/recommend",
+    "pages/recommend/recommend_in/recommend_in",
+    "pages/songlist_more/songlist_more"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#31C27C",
+    "navigationBarTitleText": "Boom音乐",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "list": [
+      {"pagePath": "pages/songlist/songlist","text": "歌单","iconPath": "pages/images/song.png","selectedIconPath": "pages/images/song_se.png"},
+      {"pagePath": "pages/Collection/collection","text": "收藏","iconPath": "pages/images/collection.png","selectedIconPath": "pages/images/collection_se.png"},
+      {"pagePath": "pages/me/me","text": "个人中心","iconPath": "pages/images/user.png","selectedIconPath": "pages/images/user_se.png"}
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

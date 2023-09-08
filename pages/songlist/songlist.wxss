@@ -1,0 +1,115 @@
+/* pages/songlist/songlist.wxss */
+#banner {
+  height:300rpx;
+}
+#banner image{
+  width: 100vw;
+  height: 100%;
+  display: block;
+}
+.recommend {
+  position: relative;
+  width: 100vw;
+  height: 15vh;
+  white-space: nowrap;
+}
+
+.recommend .pic {
+  margin-top: 3vh;
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.recommend .txt {
+  font-size: 26rpx;
+}
+
+.recommend .box{
+  text-align: center;
+  padding: 0 6vw 2vh;
+  display: inline-block;
+}
+.recommendTitle{
+  width: 100%;
+  height: 90rpx;
+  box-shadow:0rpx 6rpx 10rpx #31C27C;
+}
+.recommendTitle view
+{
+  float: left;
+}
+.recommendTitle .txt
+{
+  width: 640rpx;
+  padding-top:30rpx;
+  padding-left: 10rpx;
+  
+}
+.recommendTitle .txt::before
+{
+  width: 6rpx;
+  height: 30rpx;
+  background-color: #31C27C;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  margin-top:7rpx;
+}
+.recommendTitle .more
+{
+  padding-top: 30rpx;
+}
+
+.list_warp{
+  width: 100%;
+  height: 180rpx;
+  padding: 10rpx 0rpx;
+  box-shadow: 3rpx 6rpx 3rpx #f1f1f1;
+  background-color:  #ebfaeb;
+  margin-bottom: 5rpx;
+}
+.list_warp view{
+  float: left;
+}
+.list_warp .list_l{
+  width: 160rpx;
+  height: 160rpx;
+  padding-left: 45rpx;
+  padding-top: 20rpx;
+}
+.list_warp .list_c{
+  width: 330rpx;
+  height: 160rpx;
+  padding: 20rpx;
+}
+.list_c view{
+  width: 250rpx;
+  padding-left: 60rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list_c .musicName{
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.list_c .name{
+  font-size: 26rpx;
+  color: #555;
+}
+.list_warp .list_r{
+  width: 160rpx;
+  height: 145rpx;
+  padding-top:55rpx;
+}
+.list_l image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 23rpx;
+}
+.list_r image{
+width: 165rpx;
+height: 75rpx;
+}

@@ -1,0 +1,25 @@
+<!--pages/newdisc/newdisc.wxml-->
+<view class="title1">数字专辑</view>
+<view class="swiper">
+<swiper id="banner" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" interval="2000" indicator-active-color="#37C21C">
+<block wx:for="{{bannerData}}" wx:key="*this">
+      <swiper-item>
+      <image src="{{httpImageUrl+item.url}}"></image>
+      </swiper-item>
+</block>
+</swiper>
+</view>
+<view class="title2">
+<view class="t2">最新上架</view>
+</view>
+<block class="btnbox1" wx:for="{{songlistData}}" wx:key="index">
+  <view data-newdisc="{{item}}" bindtap="more" class="list_warp">
+      <view class="list_l">
+      <image src="{{item.image.url}}"></image>
+      </view>
+      <view class="list_c">
+      <view class="listName">{{item.diskname}}</view>
+      <view class="price">{{item.diskprice}}</view>
+      </view>
+  </view>
+</block>

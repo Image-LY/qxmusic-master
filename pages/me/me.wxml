@@ -1,0 +1,73 @@
+<!--pages/me/me.wxml-->
+<block wx:if="{{!login}}">
+<view class="bg">
+  <view class="title">我的</view>
+  <view class="top_block">
+      <view class="login">
+        <view class="log_btn">
+        <button class="btn" bindtap="getUserProfile">微信登录</button>
+        </view>
+        <view class="explain">立即登录以获取更多功能</view>
+      </view>
+      <view class="score">积分中心</view>
+      <view class="vip">会员中心</view>
+      <view class="sign_in">每日签到</view>
+  </view>
+</view>
+</block>
+<block wx:else>
+  <view class="bg">
+  <view class="title">个人中心</view>
+  <view class="top_block">
+      <view class="login">
+        <view class="user">
+        <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class="explain">{{userInfo.nickName}},下午好！</view>
+      </view>
+      <view class="score">积分中心</view>
+      <view class="vip">会员中心</view>
+      <view class="sign_in">每日签到</view>
+  </view>
+</view>
+<view class="chioce">
+			<!-- 选项卡item -->
+			<view class="choice-item" bindtap="exitUserAccount">
+				<view class="">
+					<text class="icon-time text-gray"></text>
+					<text style="margin-left:20rpx">账号登出</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+			<view class="choice-item">
+				<view class="">
+					<text class="icon-tip text-gray"></text>
+					<text style="margin-left:20rpx">安全管理</text>
+				</view>
+			</view>
+
+      <view class="choice-item">
+				<navigator class="" url="/pages/draw/draw">
+					<text class="icon-tip text-gray"></text>
+					<text style="margin-left:20rpx">充值</text>
+				</navigator>
+			</view>
+
+			<view class="choice-item">
+				<!-- 意见反馈需要使用button的open-type属性 此处没有设置-->
+				<view class="">
+					<text class="icon-write text-gray"></text>
+					<text style="margin-left:20rpx">个人资料</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+			<view class="choice-item">
+				<view class="">
+					<text class="icon-changeCount text-gray"></text>
+					<text style="margin-left:20rpx">意见反馈</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+		</view>
+</block>
+

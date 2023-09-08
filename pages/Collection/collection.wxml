@@ -1,0 +1,47 @@
+<!--pages/Collection/collection.wxml-->
+	<!-- 功能栏 -->
+	<view class="title-bar">
+		<view class="item-title {{index == currentIndex ? 'active' : ' '}}" data-index="{{index}}"
+			bindtap="checkItem" wx:for="{{content}}" wx:key="index">
+			{{item.text}}
+		</view>
+	</view>
+	<swiper class="swiper-box" style="min-height:{{height}}px" duration="300" current="{{currentIndex}}"
+		bindchange="changeTab">
+		<swiper-item>
+			<block>
+				<view class="no-content">
+					<view class="but-box">
+            <view class="nonebox">
+            <image src="{{httpImageUrl + coimgData[0].url}}"></image>
+            </view>
+						<text style="font-size:30rpx" class="text-gray">没有收藏的歌曲</text>
+					</view>
+				</view>
+			</block>
+		</swiper-item>
+		<swiper-item>
+			<block>
+				<view class="no-content">
+					<view class="but-box">
+            <view class="nonebox">
+            <image src="{{httpImageUrl + coimgData[0].url}}"></image>
+            </view>
+						<text style="font-size:30rpx" class="text-gray">没有收藏的专辑</text>
+					</view>
+				</view>
+			</block>
+		</swiper-item>
+		<swiper-item>
+			<block>
+				<view class="no-content">
+					<view class="but-box">
+            <view class="nonebox">
+            <image src="{{httpImageUrl + coimgData[0].url}}"></image>
+            </view>
+						<text style="font-size:30rpx" class="text-gray">没有收藏的歌单</text>
+					</view>
+				</view>
+			</block>
+		</swiper-item>
+	</swiper>

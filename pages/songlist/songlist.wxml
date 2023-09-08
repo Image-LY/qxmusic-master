@@ -1,0 +1,50 @@
+<!--pages/songlist/songlist.wxml-->
+<!--轮播-->
+<view class="swiper">
+<swiper id="banner" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" interval="2000" indicator-active-color="#37C21C">
+<block wx:for="{{bannerData}}" wx:key="*this">
+      <swiper-item>
+      <image src="{{item.url}}"></image>
+      </swiper-item>
+</block>
+</swiper>
+</view>
+<scroll-view class="recommend">
+  <navigator class="box" url="/pages/recommend/recommend">
+    <image src="{{httpImageUrl+navData[0].url}}" class="pic"></image>
+    <view class="txt">歌单推荐</view>
+  </navigator>
+  <navigator class="box" url="/pages/newsongs/newsongs">
+    <image src="{{httpImageUrl+navData[1].url}}" class="pic"></image>
+    <view class="txt">新歌首发</view>
+  </navigator>
+  <navigator class="box" url="/pages/newdisc/newdisc">
+    <image src="{{httpImageUrl+navData[2].url}}" class="pic"></image>
+    <view class="txt">新碟首发</view>
+  </navigator>
+  <navigator class="box" url="/pages/rank/rank">
+    <image src="{{httpImageUrl+navData[3].url}}" class="pic"></image>
+    <view class="txt">排行榜</view>
+  </navigator>
+</scroll-view>
+<view class="recommendTitle">
+      <view class="txt">每日推荐</view>
+      <view class="more">
+      <navigator url="/pages/songlist_more/songlist_more">更多></navigator>
+      </view>
+</view>
+  <block wx:for="{{songData}}" wx:key="index">
+  <view class="list_warp">
+      <view class="list_l">
+      <image src="{{item.image.url}}"></image>
+      </view>   
+      <view class="list_c">
+      <view class="musicName">{{item.name}}</view>
+      <view class="name">{{item.singer}}</view>
+      </view>
+      <view data-item="{{item}}" bindtap="playsong" class="list_r">
+      <image src="{{httpImageUrl+playimgData[0].url}}"></image>
+      </view>
+  </view>
+  
+  </block>
