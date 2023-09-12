@@ -15,7 +15,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let that = this
     //歌单信息请求
     wx.request({
       url: that.data.httpUrl + 'songlist/getAllListInfo',

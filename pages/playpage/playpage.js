@@ -34,6 +34,7 @@ Page({
     httpUrl: "http://127.0.0.1/"
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -192,33 +193,43 @@ Page({
   nextMusic:function()
   {
     let that = this
-    if(musicIndex!==36)    //是否到顶
+    
+    if(musicIndex<6||(musicIndex>=101&&musicIndex<140))    //是否到顶
     {
     musicIndex=musicIndex+1;
     //根据id请求下一曲
-    wx.request({
-      url: that.data.httpUrl + 'song/querySongsById',
-      data:{
-        id:musicIndex
-      },
-      header:{
-        "content-type":"application/json"
-      },
-      success(res)
-      {
-        if(res.data.code==0){
-          that.setData({
-            songData:res.data.data
-          })
-          console.log(that.songdata)
+    //异步导致数据不同步的处理
+    function fetchSongdata(callback) {
+      wx.request({
+        url: that.data.httpUrl + 'song/querySongsById',
+        data:{
+          id:musicIndex
+        },
+        header:{
+          "content-type":"application/json"
+        },
+        success(res)
+        {
+          if(res.data.code==0){
+            that.setData({
+              songData:res.data.data[0]
+            })
+            callback(that.data.songData)
+          }
+          else{}
         }
-        else{}
-      }
-    })
-    console.log(that.data.songData)
+      })
+    }
     clearInterval(currentInterval);
     bgam.stop();
-    bgam.src = that.data.songData.songurl;
+    fetchSongdata(function(songData){
+      bgam.src = songData.songurl;
+      that.setData({
+        src:songData.image.url,
+        musicName:songData.name,
+        author:songData.singer
+      })
+    })
     //获取歌曲时间
     bgam.onCanplay(function getDuration()
     {
@@ -277,29 +288,58 @@ Page({
       }
     }
       }, 100);
-    that.setData({
-      src:that.data.songData.image.url,
-      musicName:nextName,
-      author:nextAuthor,
-      playState:"play",
-      sliderCurLength:0
-    });
     bgam.play();
   }
+  else{
+    wx.showToast({
+      title: "已经是最后一首啦", // 提示的内容
+      icon: "none",
+      duration: 3000, // 提示的延迟时间，默认1500
+      mask: false, // 是否显示透明蒙层，防止触摸穿透
+      })
+    }
   },
 
   lastMusic:function() 
   {
-    if(musicIndex!==1)    //是否到底
+    let that = this
+    
+    if((musicIndex>1&&musicIndex<=6)||musicIndex>101)    //是否到底
     {
     musicIndex=musicIndex-1;
+    //根据id请求下一曲
+    //异步导致数据不同步的处理
+    function fetchSongdata(callback) {
+      wx.request({
+        url: that.data.httpUrl + 'song/querySongsById',
+        data:{
+          id:musicIndex
+        },
+        header:{
+          "content-type":"application/json"
+        },
+        success(res)
+        {
+          if(res.data.code==0){
+            that.setData({
+              songData:res.data.data[0]
+            })
+            callback(that.data.songData)
+          }
+          else{}
+        }
+      })
+    }
     clearInterval(currentInterval);
     bgam.stop();
-    var lastName=app.globalData.song_detail[musicIndex+1].musicName;
-    var lastSrc=app.globalData.song_detail[musicIndex+1].musicUrl;
-    var lastAuthor=app.globalData.song_detail[musicIndex+1].name;
-    var lastImg=app.globalData.song_detail[musicIndex+1].src;
-    bgam.src = lastSrc;
+    fetchSongdata(function(songData){
+      bgam.src = songData.songurl;
+      that.setData({
+        src:songData.image.url,
+        musicName:songData.name,
+        author:songData.singer
+      })
+    })
     //获取歌曲时间
     bgam.onCanplay(function getDuration()
     {
@@ -358,25 +398,16 @@ Page({
       }
     }
       }, 100);
-    this.setData({
-      src:lastImg,
-      musicName:lastName,
-      author:lastAuthor,
-      playState:"play",
-      sliderCurLength:0
-    });
     bgam.play();
   }
-  },
-  sliderChange: function(e)
-  {
-    var newSlider = e.detail.value;
-    var sliderTime=e.detail.value/10;
-    console.log(sliderTime);
-    bgam.seek(sliderTime);
-    this.setData({
-      sliderCurLength:newSlider
-    })
+  else{
+    wx.showToast({
+      title: "已经到第一首啦", // 提示的内容
+      icon: "none",
+      duration: 3000, // 提示的延迟时间，默认1500
+      mask: false, // 是否显示透明蒙层，防止触摸穿透
+      })
+    }
   },
 
   onReady() {
