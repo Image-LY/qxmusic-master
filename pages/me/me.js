@@ -36,7 +36,6 @@ Page({
     wx.getUserProfile({
     desc: '用于完善会员资料',
     success: (res) => {
-      console.log("用户信息：",res.userInfo);
       wx.setStorage({
         key:"userInfo",
         data:res.userInfo
