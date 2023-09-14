@@ -16,8 +16,10 @@
 <view class="endTime">{{musicTime1}}:{{musicTime2}}</view>
 </view>
 <view class="btnBox">
-<image bindtap="lastMusic" src="{{httpImageUrl+playimgData[0].url}}"></image>
-<image bindtap="music" src="{{httpImageUrl+(playState==='pause'?  playimgData[2].url:playimgData[3].url)}}"></image>
-<image bindtap="nextMusic" src="{{httpImageUrl+playimgData[1].url}}"></image>
+  <image id="interactive" bindtap="changePlayMode" src="{{currentplaymode === 'default' ? httpImageUrl + playimgData[4].url : (currentplaymode === 'circle' ? httpImageUrl + playimgData[5].url : httpImageUrl + playimgData[6].url)}}"></image>
+  <image id="change" data-action="last" bindtap="changeMusic" src="{{httpImageUrl+playimgData[0].url}}"></image>
+  <image id="play" bindtap="music" src="{{httpImageUrl+(playState==='pause'?  playimgData[2].url:playimgData[3].url)}}"></image>
+  <image id="change" data-action="next" bindtap="changeMusic" src="{{httpImageUrl+playimgData[1].url}}"></image>
+  <image id="interactive" bindtap="checkSongList" src="{{httpImageUrl+playimgData[7].url}}"></image>
 </view>
 

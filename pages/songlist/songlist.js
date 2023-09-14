@@ -19,7 +19,6 @@ Page({
 
   playsong:function(events)
   {
-    console.log(events);
     let m_url = events.currentTarget.dataset.item.songurl
     let m_name = events.currentTarget.dataset.item.name
     let m_img = events.currentTarget.dataset.item.image.url
@@ -81,7 +80,6 @@ Page({
         'content-type':'application/json'
       },
       success(res){
-        console.log(res.data)
         if(res.data.code==0){
           that.setData({
             songData:res.data.data
